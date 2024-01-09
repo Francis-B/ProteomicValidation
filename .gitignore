@@ -3,3 +3,4 @@ data/**
 .snakemake/
 .Rhistory
 .pybiomart.sqlite
+scripts/__pycache__/
