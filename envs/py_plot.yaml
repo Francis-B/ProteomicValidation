@@ -1,0 +1,10 @@
+name:
+  py_plot
+
+channels:
+  - conda-forge
+  
+dependencies:
+  - python=3.11
+  - upsetplot
+  - matplotlib=3.7.1

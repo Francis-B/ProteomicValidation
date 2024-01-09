@@ -1,0 +1,16 @@
+name:
+  py_biomart
+
+channels:
+  - bioconda
+  - conda-forge
+  - pkgs/main
+
+dependencies:
+  - python=3.9
+  - cffi
+  - pip
+  - pip:
+    - pybiomart
+    - requests
+    - urllib3

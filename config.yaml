@@ -1,0 +1,22 @@
+## List of files and params to be used in the analysis
+
+# Fasta files
+ensembl:
+  canonical.fasta
+fomonet:
+  fomonet.fasta
+
+# List of conditions names. Will be used to determine which files belong to 
+# which condition.  
+conditions:
+  - ctr
+  - hyp
+  - rep
+
+replicates:
+  [1, 2, 3]
+
+# Maximum number of replicates without quantification allowed to consider a 
+# protein group as confidently quantified
+allowed_na:
+  0
