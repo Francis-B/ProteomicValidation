@@ -1,1 +1,0 @@
-DIA-NN/fomonet_ctr/report.tsv DIA-NN/fomonet_hyp/report.tsv DIA-NN/fomonet_rep/report.tsv
