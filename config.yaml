@@ -6,6 +6,14 @@ ensembl:
 fomonet:
   fomonet.fasta
 
+# Path to DIA-NN executable
+diann_path:
+  /usr/diann/1.8.1/diann-1.8.1
+
+# Path to ThermoRawFileParser executable
+thermorawfileparser_path:
+  ~/ThermoRawFileParser1.4.2/ThermoRawFileParser.exe
+
 # List of conditions names. Will be used to determine which files belong to 
 # which condition.  
 conditions:
@@ -14,7 +22,7 @@ conditions:
   - rep
 
 replicates:
-  [1, 2, 3]
+  [1, 2, 3, 4, 5, 6, 7, 8]
 
 # Maximum number of replicates without quantification allowed to consider a 
 # protein group as confidently quantified
