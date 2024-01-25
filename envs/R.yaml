@@ -1,6 +1,9 @@
 channels:
   - conda-forge
+  - bioconda
 
 dependencies:
-  - r-base=3.6.1
+  - r-base
   - r-argparse
+  - bioconductor-msstats=4.10
+  - r-stringr
