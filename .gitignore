@@ -1,6 +1,11 @@
 results/**
 data/**
+logs/**
+scripts/__pycache__/
 .snakemake/
+
 .Rhistory
 .pybiomart.sqlite
-scripts/__pycache__/
+*.fa
+*.log
+*.zip
