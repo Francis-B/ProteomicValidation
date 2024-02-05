@@ -5,5 +5,7 @@ channels:
 dependencies:
   - r-base
   - r-argparse
+  - r-gridextra
   - bioconductor-msstats=4.10
   - r-stringr
+  - r-svglite

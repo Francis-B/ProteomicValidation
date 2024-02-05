@@ -2,8 +2,10 @@ results/**
 data/**
 logs/**
 scripts/__pycache__/
+scripts/KIWI/__pycache__/
 .snakemake/
 
+Methods.txt
 .Rhistory
 .pybiomart.sqlite
 *.fa
