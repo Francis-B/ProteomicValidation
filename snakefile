@@ -11,17 +11,19 @@ rule all:
         "results/figures/volcano_plot.svg",
         "results/fomonet_id.pkl"
         
-# rule get_fomonet_sequences:
-#     """ Compare Ensembl and FOMOnet fasta to extract (1) protein ids which are
-#         unique to FOMOnet and (2) peptides sequences of these proteins """
-#     input:
-#         ensembl = config['ensembl'],
-#         fomonet = config['fomonet']
-#     output:
-#         unique_ids = "results/unique_fomonet_id.txt", # All ids unique to FOMOnet
-#         fomonet_peptides = "results/fomonet_peptides.txt"
-#     script:
-#         "scripts/get_fomonet_sequences.py"
+rule get_fomonet_sequences:
+    """ Compare Ensembl and FOMOnet fasta to extract (1) protein ids which are
+        unique to FOMOnet and (2) peptides sequences of these proteins """
+    input:
+        ensembl = config['ensembl'],
+        fomonet = config['fomonet']
+    output:
+        unique_ids = "results/unique_fomonet_id.txt", # All ids unique to FOMOnet
+        fomonet_peptides = "results/fomonet_peptides.txt"
+    script:
+        "scripts/get_fomonet_sequences.py"
+
+
 rule get_parent_proteins:
     """ Digest FOMOnet fasta file with trypsin using KIWI. Get all parent 
         proteins for each peptide obtained."""
@@ -107,7 +109,7 @@ rule run_DIANN:
         "--peak-center "
         "--no-ifs-removal "
         "--threads {threads} "
-        "--vis 15, $(cat {input.fomonet_peptides}) " # Get XICs for FOMOnet peptides
+        # "--vis 15, $(cat {input.fomonet_peptides}) " # Get XICs for FOMOnet peptides
 
 
 rule DIANN_to_MSstats:
@@ -164,7 +166,7 @@ rule get_identified_predictions:
     """ Find (1) identified protein groups with only FOMOnet predictions and (2)
         identified protein groups with at least one FOMOnet prediction """
     input:
-        quant = "results/msstats_quant.tsv",
+        quant = "results/msstats_protein_quant.tsv",
         unique_ids = "results/unique_fomonet_id.txt"
     output:
         unique_pg = "results/unique_fomonet_pg.txt", # Only FOMOnet ids in pg
@@ -196,7 +198,7 @@ rule analyse_quantification:
         distributions and make an upsetplot of conditions in which FOMOnet pg 
         are identified """
     input:
-        quant = "results/msstats_quant.tsv",
+        quant = "results/msstats_protein_quant.tsv",
         unique_ids = "results/unique_fomonet_pg.txt"
     output:
         upsetplot = "results/figures/upsetplot.svg",

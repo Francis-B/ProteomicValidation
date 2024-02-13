@@ -28,14 +28,14 @@ for id_, sequence in fomonet_dict.items():
         if sequence != ensembl_dict[base_id]:
             fomonet_ids.append(id_)
 
-# Make dict of protein: sequence with only fomonet proteins
+# Make dict {protein: sequence} with only fomonet proteins
 only_fomonet_dict = {id_: fomonet_dict[id_] for id_ in fomonet_ids}
 
 # Make a list of all peptide sequences obtained from fomonet cleaved proteins
 dig = digestion.Digestion(only_fomonet_dict)
 dig.cleave_proteins()
 dig.check_peptide_uniqueness()
-sequences = np.unique(dig.get_sequences())
+sequences = np.unique(dig.get_sequences()) # Remove duplicates
 
 # Write fomonet protein ids
 with open(UNIQUE_IDS, 'w', encoding='UTF-8') as f:
